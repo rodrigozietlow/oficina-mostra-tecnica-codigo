@@ -1,0 +1,27 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			ToDos
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding id="page1">
+	<form id="toDos-form2">
+		<ion-item id="toDos-input3">
+			<ion-label stacked>
+				Nova tarefa
+			</ion-label>
+			<ion-input type="text" placeholder="Digite aqui a tarefa" #tarefa></ion-input>
+		</ion-item>
+		<button id="toDos-button1" ion-button color="positive" (click)="addTodo(tarefa.value); tarefa.value = ''" block>
+			Criar
+		</button>
+	</form>
+	<ion-list id="toDos-list2" *ngIf="todos.length > 0" margin-top>
+		<h2 ion-text>ToDos</h2>
+		<ion-item color="none" *ngFor="let todo of todos; let i = index">
+			{{todo}}
+			<ion-icon name="close-circle" (click)="removeTodo(i)" item-right></ion-icon>
+		</ion-item>
+	</ion-list>
+</ion-content>
